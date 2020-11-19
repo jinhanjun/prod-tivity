@@ -9,15 +9,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Roboto:400,700"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="login.css"/>
+
+
     <script src="board.js"></script>
     <script type = "module" src="app.js"></script>
     <title>Productivity Board</title>
@@ -26,53 +24,67 @@
     <div class="ui">
       <nav>
         <div class="nav--left">
-          <a style="color:white;"> Welcome to your personalized board!</a>
-
+          <a style="color:white;"> Welcome to Prod-tivity!</a>
         </div>
-
-        <div class="nav--right">
-
-        </div>
+        <div class="nav--right"></div>
       </nav>
-      <header><h1>Welcome! Please log in.</h1></header>
-      <br /> <br />
-      <?php
-        if(isset($_GET['error'])){
-            if($_GET['error']== "wrongpassword"){
-                echo '<h1>Wrong password.</h1>';
+      <br /> <br />      
+        <div class="col-lg-6 col-md-8 mx-auto">
+            <div id = "logincard" class = "card rounded shadow shadow-sm"> 
+            <div class="card-header">
+                    <h3 class="mb-0">Please log in</h3>
+                  </div>
+            <div class="card-body">
+            <form action="login/logininc.php" method="post" >
 
-            } else if($_GET['error']== "nouser"){
-                echo '<h1>No such username exists.</h1>';
+            <label for="userbox">Username</label>
+            <input id = "userbox"  class="form-control form-control-lg form-rounded" name="username" type = "text" placeholder="Username" >
 
-            }else if($_GET['error']== "sqlerror"){
-                echo '<h1>Database error</h1>';
+            <br />
+            <label for = "pwbox"> Password </label>
+            <input id = "pwbox"  class="form-control form-control-lg form-rounded" name="password" type = "text" placeholder="Password" >
+            
+            <br /> 
 
-            }
-            echo '<h1> Please try again</h1>';
-        } else if (isset($_GET['signup'])== "success") {
-            echo '<h1>SUCCESS!</h1>';
-            echo '<a href="header.php"><button style="width: 10%; background-color: #0067a3; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px;"type="submit" >Enter</button></a>';
+                <button  id = "loginbutton" class="btn btn-success btn-lg float-left" type="submit" name="loginsubmit">Login</button>
+            <div class = "float-right">
+            <?php
+              if(isset($_GET['error'])){
+                  if($_GET['error']== "wrongpassword"){
+                      echo '<p class ="loginMSG">Wrong password. </p>';
 
-        }
-      ?>
-      <form action="login/logininc.php" method="post" >
-                        <input style="width: 25%; padding: 12px 20px; margin: 8px 0; box-sizing: border-box;" name="username" type = "text" placeholder="Username" >
-                        <input style="width: 25%; padding: 12px 20px; margin: 8px 0; box-sizing: border-box;" name="password" type = "text" placeholder="Password" >
-                        <br /> <br />
-                        <button style="width: 10%; background-color: #0067a3; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px;"type="submit" name="loginsubmit">Login</button>
-                        </form>
-                        <br /> <br />
-                        <a href="signup.php" name="signup"><button style="width: 10%; background-color: #0067a3; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px;"type="submit" name="signupsubmit">Signup</button></a>
-                        <div class="field">
-                            <div class="control">
-                                
-                            </div>
+                  } else if($_GET['error']== "nouser"){
+                      echo '<p class ="loginMSG">No such username exists. </p>';
 
-                        </div>
+                  }else if($_GET['error']== "sqlerror"){
+                      echo '<p class ="loginMSG">Database error. </p>';
 
-
-
+                  }
+                  echo '<p class ="loginMSG"> Please try again.</p>';
+              } else if (isset($_GET['signup'])== "success") {
+                  echo '<p style = "color: green;"> Success! Logging you in. </p>';
+                  echo '<a href="header.php"><button style="width: 10%; background-color: #0067a3; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px;"type="submit" >Enter</button></a>';
+              }
+            ?>
+            </div>
+              </form>
+              </div>
+              
+      <br />
         
+        <div class = "card-footer">
+          <p>Haven't created an account yet? <a id = "signuplink" href = "signup.php" name = "signup">Sign Up</a></p>
+        </div>
+        
+        
+        <div class="field">
+            <div class="control">
+        </div>
+
+        </div>
+      </div>
+      </div>
+
     </div>
   </body>
 </html>
