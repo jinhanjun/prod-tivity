@@ -1,11 +1,18 @@
+body {
+    background-color: #252933; 
+}
+.ui {
+    background-color:  #252933;
+}
+
+
 #signuplink {
     text-decoration: none;
 }
 
 #logincard {
-    color: black;
+    color: #000000;
 }
-
 
 #userbox {
     padding: 12px 20px; margin: 8px 0; box-sizing: border-box;
