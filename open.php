@@ -18,14 +18,15 @@
 
     <script src="board.js"></script>
     <script type = "module" src="app.js"></script>
-    <title>Productivity Board</title>
+
+    <title>Busy Bee Prod-tivity</title>
   </head>
 
   <body>
-    <div class="ui">
-      <nav>
+    <div class="ui" style = "background-color: #252933">
+      <nav style = "background-color: #ffd44d">
         <div class="nav--left">
-          <a style="color:white;"> Welcome to Prod-tivity!</a>
+          <a style="color:#393637;"> Welcome to Busy Bee Prod-tivity!</a>
         </div>
         <div class="nav--right"></div>
       </nav>
