@@ -3,6 +3,8 @@
 if(isset($_POST['signupsubmit'])){
     require 'dbhinc.php';
 
+    $usermajor = $_POST['usermajor'];
+    $userfullname = $_POST['userfullname'];
     $username = $_POST['username'];
     $password = $_POST['password'];
     $password2 = $_POST['password2'];
@@ -29,14 +31,14 @@ if(isset($_POST['signupsubmit'])){
             header("Location: ../signup.php?error=usertaken");
             exit();
         } else {
-            $sql = "INSERT INTO users (username, password) VALUES (?, ?)";
+            $sql = "INSERT INTO users (username, password, fullname, usermajor) VALUES (?, ?, ?, ?)";
             $stmt = mysqli_stmt_init($conn);
             if(!mysqli_stmt_prepare($stmt, $sql)){
                 header("Location: ../signup.php?error=sqlerror");
                 exit();
             } else {
                 $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
-                mysqli_stmt_bind_param($stmt, "ss", $username, $hashedPwd);
+                mysqli_stmt_bind_param($stmt, "ssss", $username, $hashedPwd, $userfullname, $usermajor);
                 mysqli_stmt_execute($stmt);
                 header("Location: ../signup.php?signup=success");
                 exit();
