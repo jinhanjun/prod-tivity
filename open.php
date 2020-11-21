@@ -20,6 +20,7 @@
     <script type = "module" src="app.js"></script>
     <title>Productivity Board</title>
   </head>
+
   <body>
     <div class="ui">
       <nav>
@@ -32,8 +33,8 @@
         <div class="col-lg-6 col-md-8 mx-auto">
             <div id = "logincard" class = "card rounded shadow shadow-sm"> 
             <div class="card-header">
-                    <h3 class="mb-0">Please log in</h3>
-                  </div>
+                <h3 class="mb-0">Please log in</h3>
+            </div>
             <div class="card-body">
             <form action="login/logininc.php" method="post" >
 
@@ -47,28 +48,29 @@
             <br /> 
 
                 <button  id = "loginbutton" class="btn btn-success btn-lg float-left" type="submit" name="loginsubmit">Login</button>
+            
             <div class = "float-right">
             <?php
+            
               if(isset($_GET['error'])){
                   if($_GET['error']== "wrongpassword"){
-                      echo '<p class ="loginMSG">Wrong password. </p>';
+                      echo '<p class ="loginMSG">Wrong password. Please try again. </p>';
 
                   } else if($_GET['error']== "nouser"){
-                      echo '<p class ="loginMSG">No such username exists. </p>';
+                      echo '<p class ="loginMSG">No such username exists. Please try again.</p>';
 
                   }else if($_GET['error']== "sqlerror"){
-                      echo '<p class ="loginMSG">Database error. </p>';
+                      echo '<p class ="loginMSG">Database error. Please try again.</p>';
 
                   }
-                  echo '<p class ="loginMSG"> Please try again.</p>';
               } else if (isset($_GET['signup'])== "success") {
                   echo '<p style = "color: green;"> Success! Logging you in. </p>';
-                  echo '<a href="header.php"><button style="width: 10%; background-color: #0067a3; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px;"type="submit" >Enter</button></a>';
+                  echo '<a href="header.php"><button class="btn btn-primary btn-lg float-right" type="submit" >Enter</button></a>';
               }
             ?>
             </div>
               </form>
-              </div>
+          </div>
               
       <br />
         
