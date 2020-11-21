@@ -1,3 +1,10 @@
+
+body {
+    background-color: #252933; 
+}
+.ui {
+    background-color:  #252933;
+}
 .form-rounded {
     border-radius: 0.8em;
 }
@@ -6,22 +13,26 @@
     color: black;
 }
 
-#signupub {
-    padding: 12px 20px; margin: 8px 0; box-sizing: border-box;
+.signupbox {
+    box-sizing: border-box;
 }
 
 #signupass {
-    padding: 12px 20px; margin: 8px 0; box-sizing: border-box;
+  
 }
 
 #signupass2 {
-    padding: 12px 20px; margin: 8px 0; box-sizing: border-box;
 }
+
 
 .superror {
     color: red;
+
 }
 
 #loginlink {
     text-decoration: none;
+    
 }
+
+
