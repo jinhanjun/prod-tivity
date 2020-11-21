@@ -52,22 +52,18 @@
     <script src="https://www.google.com/recaptcha/api.js?render=6LfbkuQZAAAAAEYx3CAJz2dgr7m8LT_2h-CacyuY"></script>
 
 
-    <title>Productivity Board</title>
+    <title>Busy Bee Prod-tivity</title>
 
   </head>
 
 
   <body>
     <div class="ui">
-      <nav>
+      <nav style = "background-color: #ffd44d">
         <div class="nav--left">
-          <a style="color:white;"> Welcome to Prod-tivity!</a>
-
+          <a style="color:#393637;"> Welcome to Busy Bee Prod-tivity!</a>
         </div>
 
-        <!-- <div class="nav--right">
-          <a href="open.php" name="logout" style="color:white;">Login</a>
-        </div> -->
       </nav>  
       <br /> <br /> 
          
@@ -79,21 +75,31 @@
 
             <div class="card-body">
               <form id = "submitform" action="login/signupinc.php" method="post">
-                  <label for="signupub">Username</label>
-                  <input id = "signupub" class="form-control form-control-lg form-rounded" name="username" type = "text" placeholder="Create a username" >
                   
-                  <br>
+                  <label for="signupfirstname">Name</label>
+                  <input id = "signupfirstname" class="signupbox form-control form-control-lg form-rounded" name="username" type = "text" placeholder="Enter your name" >
+
+                  <br/>
+                  <label for="signupmajor">Major</label>
+                  <input id = "signupmajor" class="signupbox form-control form-control-lg form-rounded" name="username" type = "text" placeholder="Enter your major" >
+
+                  <br/>
+                  <label for="signupub">Username</label>
+                  <input id = "signupub" class="signupbox form-control form-control-lg form-rounded" name="username" type = "text" placeholder="Create a username" >
+                
+                  <br />
 
                   <label for="signuppass">Password</label>
-                  <input id = "signuppass" class="form-control form-control-lg form-rounded" name="password" type = "text" placeholder="Create your password" >
+                  <input id = "signuppass" class="signupbox form-control form-control-lg form-rounded" name="password" type = "text" placeholder="Create your password" >
                       
                   <br /> 
                   <label for="signuppass2">Re-enter Your Password</label>
-                  <input id = "signuppass2" class="form-control form-control-lg form-rounded" name="password2" type = "text" placeholder="Repeat password" >
+                  <input id = "signuppass2" class="signupbox form-control form-control-lg form-rounded" name="password2" type = "text" placeholder="Repeat password" >
 
                   <br />
                   <button id = "submitsignup" class="btn btn-success btn-lg float-left" type="submit" name="signupsubmit">Signup</button>
               </form>
+
             
               <div class = "float-right">
               
@@ -122,7 +128,7 @@
           <br />
 
           <div class = "card-footer">
-          <p>Already Have an Account? Return back to  <a id = "loginlink" href="open.php" name="logout" >Login.</a></p>
+          <p>Already Have an Account? Return back to  <a id = "loginlink" href="open.php" name="logout" >Login</a></p>
           </div>
 
           <div class="field">
@@ -133,7 +139,7 @@
         </div>
       </div>
     </div>
-    
+    <br/>
 
 
   <script>
