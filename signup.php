@@ -77,11 +77,11 @@
               <form id = "submitform" action="login/signupinc.php" method="post">
                   
                   <label for="signupfirstname">Name</label>
-                  <input id = "signupfirstname" class="signupbox form-control form-control-lg form-rounded" name="username" type = "text" placeholder="Enter your name" >
+                  <input id = "signupfirstname" class="signupbox form-control form-control-lg form-rounded" name="userfullname" type = "text" placeholder="Enter your name" >
 
                   <br/>
                   <label for="signupmajor">Major</label>
-                  <input id = "signupmajor" class="signupbox form-control form-control-lg form-rounded" name="username" type = "text" placeholder="Enter your major" >
+                  <input id = "signupmajor" class="signupbox form-control form-control-lg form-rounded" name="usermajor" type = "text" placeholder="Enter your major" >
 
                   <br/>
                   <label for="signupub">Username</label>
@@ -159,4 +159,3 @@
      document.getElementById("demo-form").submit();
    }
  </script>
-
