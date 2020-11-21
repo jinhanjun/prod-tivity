@@ -1,48 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="signup.css"/>
 
-        <title>Login to COMP 426</title>
+    <script src="board.js"></script>
+    <script type = "module" src="app.js"></script>
+    
+    <title>Productivity Board</title>
 
-        <!-- Include links to CSS stylesheets below -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" />
-        <link rel="stylesheet" href="styles.css" />
-    </head>
+  </head>
 
-    <body>
-        <div id="login">
-            <div class="login-card">
-                <div class="card-title">
-                    <h1>Board Login</h1>
-                </div>
 
-                <div class="content">
-                    <form id="login-form" action="board.html">
-                        <input id="newusername" type="text" placeholder="Username" required>
-                        <input id="newpassword" type="text" placeholder="Password" required>
+  <body>
+    <div class="ui">
+      <nav>
+        <div class="nav--left">
+          <a style="color:white;"> Welcome to Prod-tivity!</a>
 
-                        <div class="field">
-                            <div class="control">
-                                <button type="submit" onclick="return newuser()"class="btn btn-primary">Create Account</button>
-                            </div>
-                        </div>
-                        
-                        <div class="field">
-                            <div class="control">
-                                <p id="message"></p>
-                            </div>
-                        </div>
-                    </form>
-                    Already Signed up?
-                        <a href = "login.html"><button type="submit" class="btn btn-primary">Login</button></a>
-                </div>
-            </div>
         </div>
 
-        <!-- Include links to JavaScript files below -->
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <script src="board.js"></script>
-    </body>
+        <!-- <div class="nav--right">
+          <a href="open.php" name="logout" style="color:white;">Login</a>
+        </div> -->
+      </nav>  
+      <br /> <br /> 
+         
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <div id = "signupcard" class = "card rounded shadow shadow-sm"> 
+            <div class="card-header">
+              <h3 class="mb-0">Sign Up Here</h3>
+            </div>
+
+            <div class="card-body">
+              <form id = "submitform" action="login/signupinc.php" method="post">
+                  <label for="signupub">Username</label>
+                  <input id = "signupub" class="form-control form-control-lg form-rounded" name="username" type = "text" placeholder="Create a username" >
+                  
+                  <br>
+
+                  <label for="signuppass">Password</label>
+                  <input id = "signuppass" class="form-control form-control-lg form-rounded" name="password" type = "text" placeholder="Create your password" >
+                      
+                  <br /> 
+                  <label for="signuppass2">Re-enter Your Password</label>
+                  <input id = "signuppass2" class="form-control form-control-lg form-rounded" name="password2" type = "text" placeholder="Repeat password" >
+
+                  <br />
+                  <button id = "submitsignup" class="btn btn-success btn-lg float-left" type="submit" name="signupsubmit">Signup</button>
+              </form>
+            
+              <div class = "float-right">
+              
+              <!-- <?php
+                if(isset($_GET['error'])){
+                    if($_GET['error']== "usertaken"){
+                        echo '<p class = "superror">Username is already taken. Please try again.</p>';
+
+                    } else if($_GET['error']== "emptyfields"){
+                        echo '<p class = "superror">A field was left empty. Please try again.</p>';
+
+                    }else if($_GET['error']== "sqlerror"){
+                        echo '<p class = "superror">Database error. Please try again.</p>';
+                    }
+                } else if (isset($_GET['signup'])== "success") {
+                  echo '<p style = "color: green;"> Success!  Return to Login to sign in. </p> ';
+                  echo '<a href="header.php"><button class="btn btn-primary btn-lg float-right" type="submit" >Enter</button></a>';
+
+                }
+              ?>  -->
+              
+              </div>
+            </div>
+
+
+          <br />
+
+          <div class = "card-footer">
+          <p>Already Have an Account? Return back to  <a id = "loginlink" href="login.html" name="logout" >Login.</a></p>
+          </div>
+
+          <div class="field">
+              <div class="control">                
+              </div>
+          </div>
+        
+        </div>
+      </div>
+    </div>
+    
+  </body>
 </html>
+<script>
+   function onSubmit(token) {
+     document.getElementById("demo-form").submit();
+   }
+ </script>
