@@ -126,23 +126,14 @@
     // }
 
     //$username = $_SESSION['username'];
-    $q = "SELECT cardtext as _message FROM prodcards WHERE username='$username';";
+    $q = "SELECT cardtext as _message, cardid as _id FROM prodcards WHERE username='$username';";
     $r = mysqli_query($conn, $q);
 
 
-    function writeNot($text) {
-        return '<div class="col-sm-3 col-md-3 pb-2">
-        <div class="card" style="width: 18rem;">
-        <div class="card-body">
-        <p class="card-text">(\"$text\")</p>
-        
-        <a href="#" class="">Delete</a><
-        /div></div></div>';
-    }
 
     while($page = mysqli_fetch_assoc($r)){
 
-
+        $_SESSION['cardid'] = $page["_id"];
         echo '<div class="col-sm-3 col-md-3 pb-2">
         <div class="card" style="width: 18rem;">
         <div class="card-body">
@@ -152,9 +143,18 @@
         
         echo '</p>
         <a href="#" class="float-right">Update</a>
-        <a href="#" class="">Delete</a></div></div></div>';
+        <a href="deletecard.php?id=';
+        
+        echo $page["_id"];
+
+        echo '">Delete</a></div></div></div>';
+   
     }
+    
     ?>
+       
+
+
 
 
         <!-- THIS IS THE CODE FOR THE CARD,,,, put this in the while loop
