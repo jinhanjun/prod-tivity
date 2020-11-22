@@ -28,8 +28,9 @@
       padding: 20px;
     }
     
-    .card-deck .card {
+    .card-deck .card form{
       max-width: 99%;
+      padding: 20px;
     } 
     </style>
 
@@ -49,18 +50,52 @@
 
       <!-- this is the container -->
       <div class="container card-deck">
-
+      <form class = "cardform"id = "submitform" action="postcard.php" method="post">
         <div class="col-sm-3 col-md-3 pb-2">
           <div class="card" style="width: 18rem;">
             <div class="card-body">
               <label for = "new-todo">Todo:</label>
-              <textarea id = "new-todo" rows = "3" class="form-control form-rounded" name="newtodo" type = "text" placeholder="Type in a task." contentEditable="true"></textarea>
+              <textarea id = "new-todo" rows = "3" class="form-control form-rounded" name="new-todo" type = "text" placeholder="Type in a task." contentEditable="true"></textarea>
                 <br>
-              <button type="submit" class="btn btn-primary float-right">Add</button>
+              <button type="submit" name = "addsubmit" class="btn btn-primary float-right">Add</button>
+              <?php
+            //   session_start();
+            //   $servername = "us-cdbr-east-02.cleardb.com";
+            //   $dBUsername = "bbce67deea96fe";
+            //   $dBPassword = "aa0b3388";
+            //   $dBName = "heroku_594dc794615938b";
+            //   $username = $_SESSION['userUID'];
+  
+            //   // Create connection
+            //   $conn = mysqli_connect($servername, $dBUsername, $dBPassword, $dBName);
+            //   // Check connection
+            //   if(!$conn){
+            //       die("Connection failed: " .mysqli_connect_err());
+            //   }
+           
+            //   if( isset($_POST['addsubmit'])){
+            //         $newtodo = $_POST['new-todo'];
+            //         $sql = "INSERT INTO prodcards (username, text) VALUES ('$username', '$newtodo')";
+            //         mysqli_query($conn, $sql);
+            //         mysqli_close($conn);
+
+            //         echo '</div></div></div><div class="col-sm-3 col-md-3 pb-2">
+            //         <div class="card" style="width: 18rem;">
+            //         <div class="card-body">
+            //         <p class="card-text">';
+                    
+            //         echo $newtodo["_message"];
+                    
+            //         echo '</p>
+            //         <a href="#" class="float-right">Update</a>
+            //         <a href="#" class="">Delete</a></div></div></div>';
+            //   }
+        
+            ?>
             </div>
           </div>
         </div>
-
+        </form>
       <?php
       session_start();
       $username = $_SESSION['userUID'];
