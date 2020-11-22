@@ -77,13 +77,13 @@
               <form id = "submitform" action="login/signupinc.php" method="post">
                   
                   <label for="signupfirstname">Name</label>
-                  <input id = "signupfirstname" class="signupbox form-control form-control-lg form-rounded" name="username" type = "text" placeholder="Enter your name" >
+                  <input id = "signupfirstname" class="signupbox form-control form-control-lg form-rounded" name="userfullname" type = "text" placeholder="Enter your name" >
 
                   <br/>
                   <label for="majorinput">Major</label>
-                  <input id = "majorinput" class="signupbox form-control form-control-lg form-rounded" name="username" type = "text" placeholder="Enter your major" >
+                  <input id = "majorinput" class="signupbox form-control form-control-lg form-rounded" name="usermajor" type = "text" placeholder="Enter your major" >
                   <div id="suggestions"></div>
-                  
+
                   <br/>
                   <label for="signupub">Username</label>
                   <input id = "signupub" class="signupbox form-control form-control-lg form-rounded" name="username" type = "text" placeholder="Create a username" >
