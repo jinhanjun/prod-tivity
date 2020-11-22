@@ -52,7 +52,7 @@
     <script src="https://www.google.com/recaptcha/api.js?render=6LfbkuQZAAAAAEYx3CAJz2dgr7m8LT_2h-CacyuY"></script>
 
 
-    <title>Busy Bee Prod-tivity</title>
+    <title>Busy Bee</title>
 
   </head>
 
@@ -61,7 +61,7 @@
     <div class="ui">
       <nav style = "background-color: #ffd44d">
         <div class="nav--left">
-          <a style="color:#393637;"> Welcome to Busy Bee Prod-tivity!</a>
+          <a style="color:#393637;"> Welcome to Busy Bee!</a>
         </div>
 
       </nav>  
@@ -77,12 +77,13 @@
               <form id = "submitform" action="login/signupinc.php" method="post">
                   
                   <label for="signupfirstname">Name</label>
-                  <input id = "signupfirstname" class="signupbox form-control form-control-lg form-rounded" name="userfullname" type = "text" placeholder="Enter your name" >
+                  <input id = "signupfirstname" class="signupbox form-control form-control-lg form-rounded" name="username" type = "text" placeholder="Enter your name" >
 
                   <br/>
-                  <label for="signupmajor">Major</label>
-                  <input id = "signupmajor" class="signupbox form-control form-control-lg form-rounded" name="usermajor" type = "text" placeholder="Enter your major" >
-
+                  <label for="majorinput">Major</label>
+                  <input id = "majorinput" class="signupbox form-control form-control-lg form-rounded" name="username" type = "text" placeholder="Enter your major" >
+                  <div id="suggestions"></div>
+                  
                   <br/>
                   <label for="signupub">Username</label>
                   <input id = "signupub" class="signupbox form-control form-control-lg form-rounded" name="username" type = "text" placeholder="Create a username" >
@@ -140,6 +141,8 @@
       </div>
     </div>
     <br/>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="debounce.js"></script>
 
 
   <script>
@@ -159,3 +162,4 @@
      document.getElementById("demo-form").submit();
    }
  </script>
+
