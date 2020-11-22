@@ -42,6 +42,7 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css"/>
     <link rel="stylesheet" href="signup.css"/>
@@ -59,12 +60,13 @@
 
   <body>
     <div class="ui">
-      <nav style = "background-color: #ffd44d">
-        <div class="nav--left">
-          <a style="color:#393637;"> Welcome to Busy Bee!</a>
-        </div>
-
-      </nav>  
+      <!-- NAV BAR -->
+      <div class="navbar shadow-lg " style="background-color: #262a2b ">
+          <a class="navbar-brand" >
+          <img src="https://img.icons8.com/nolan/64/bee.png"/>
+          <strong> Busy Bee </strong>
+          </a>
+      </div>
       <br /> <br /> 
          
       <div class="col-lg-6 col-md-8 mx-auto">
@@ -98,30 +100,28 @@
                   <input id = "signuppass2" class="signupbox form-control form-control-lg form-rounded" name="password2" type = "text" placeholder="Repeat password" >
 
                   <br />
-                  <button id = "submitsignup" class="btn btn-success btn-lg float-left" type="submit" name="signupsubmit">Signup</button>
+                  <button id = "submitsignup" class="btn btn-primary btn-lg float-left form-rounded" type="submit" name="signupsubmit">Sign Up <i class="fa fa-user-plus"></i></button>
               </form>
 
             
               <div class = "float-right">
               
-              <?php
-                if(isset($_GET['error'])){
-                    if($_GET['error']== "usertaken"){
-                        echo '<p class = "superror">Username is already taken. Please try again.</p>';
+                <?php
+                  if(isset($_GET['error'])){
+                      if($_GET['error']== "usertaken"){
+                          echo '<p class = "superror">Username is already taken. Please try again.</p>';
 
-                    } else if($_GET['error']== "emptyfields"){
-                        echo '<p class = "superror">A field was left empty. Please try again.</p>';
+                      } else if($_GET['error']== "emptyfields"){
+                          echo '<p class = "superror">A field was left empty. Please try again.</p>';
 
-                    }else if($_GET['error']== "sqlerror"){
-                        echo '<p class = "superror">Database error. Please try again.</p>';
-                    }
-                } else if (isset($_GET['signup'])== "success") {
-                  echo '<p style = "color: green;"> Success!  Return to Login to sign in. </p> ';
-                  echo '<a href="header.php"><button class="btn btn-primary btn-lg float-right" type="submit" >Enter</button></a>';
+                      }else if($_GET['error']== "sqlerror"){
+                          echo '<p class = "superror">Database error. Please try again.</p>';
+                      }
+                  } else if (isset($_GET['signup'])== "success") {
+                    echo '<p style = "color: green;"> Success!  Return to Login to sign in. </p> ';
 
-                }
-              ?> 
-              
+                  }
+                ?> 
               </div>
             </div>
 
@@ -131,16 +131,26 @@
           <div class = "card-footer">
           <p>Already Have an Account? Return back to  <a id = "loginlink" href="open.php" name="logout" >Login</a></p>
           </div>
-
-          <div class="field">
-              <div class="control">                
-              </div>
-          </div>
         
         </div>
       </div>
+      <br><br>
+      <footer class="text-center py-3 page-footer" style="background-color: #262a2b">
+    <!-- <div class="text-center py-3" style="background-color: black"> -->
+      <!-- © 2020 Copyright: -->
+      <a style = "text-decoration: none; color: white;" href="https://icons8.com/icon/vn5qFmwrStFg/bee">Bee icon by Icons8</a>
+    
+    </footer>
     </div>
     <br/>
+    <br>
+    
+   
+    
+
+
+
+
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="debounce.js"></script>
 
@@ -162,4 +172,3 @@
      document.getElementById("demo-form").submit();
    }
  </script>
-
