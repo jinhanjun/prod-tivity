@@ -126,32 +126,45 @@
     // }
 
     //$username = $_SESSION['username'];
-    $q = "SELECT cardtext as _message, cardid as _id FROM prodcards WHERE username='$username';";
+    $q = "SELECT cardtext as _message, cardid as _id, cardtext as _text FROM prodcards WHERE username='$username';";
     $r = mysqli_query($conn, $q);
 
 
 
-    while($page = mysqli_fetch_assoc($r)){
+    while($page = mysqli_fetch_assoc($r)){ ?>
 
-        $_SESSION['cardid'] = $page["_id"];
-        echo '<div class="col-sm-3 col-md-3 pb-2">
+        <div class="col-sm-3 col-md-3 pb-2">
         <div class="card" style="width: 18rem;">
-        <div class="card-body">
-        <p class="card-text">';
+        <div id=<?php echo $page["_id"]?> class="card-body">
+        <p class="card-text">
         
-        echo $page["_message"];
+        <?php echo $page["_message"] ?>
         
-        echo '</p>
-        <a href="#" class="float-right">Update</a>
-        <a href="deletecard.php?id=';
-        
-        echo $page["_id"];
+        </p>
+        <td><a href="header.php?edit=true&id=<?php echo $page["_id"]?>">Edit</a></td>
 
-        echo '">Delete</a></div></div></div>';
+
+            <?php
+
+
+                if(isset($_GET['edit']) && ($_GET['id']== $page["_id"])){?>
+                      <form class = "cardform"id = "submitform" action="editcard.php?id=<?php echo $page["_id"]?>" method="post">
+                    <textarea id = "new-todo" rows = "3" class="form-control form-rounded" name="new-todo" type = "text" placeholder="<?php echo $page["_text"]?>" contentEditable="true"></textarea>
+                    <br>
+                  <button type ="submit" href="">Add</button></form>
+                <?php } ?>
+        <a href="deletecard.php?id=<?php echo $page["_id"]?>">Delete</a></div></div></div>
    
-    }
+    <?php } ?>    
     
-    ?>
+    <script>
+        renderedit($editid){
+            <?php
+            //echo('<textarea id = "new-todo" rows = "3" class="form-control form-rounded" name="new-todo" type = "text" placeholder="Type in a task." contentEditable="true"></textarea><br><button type="submit" name = "addsubmit" class="btn btn-primary float-right">Add</button>')
+            ?>
+        }
+
+    </script>
        
 
 
