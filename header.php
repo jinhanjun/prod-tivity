@@ -47,6 +47,61 @@
         </ul>
       </nav>
 
+<?php
+//REST API START
+function call_api($method, $url, $data = false,$api_key="_9A3UF457b8_wDR2Vr7W_QeF")
+{
+    $curl = curl_init();
+
+    switch ($method)
+    {
+	case "POST":
+	    curl_setopt($curl, CURLOPT_POST, 1);
+
+	    if ($data)
+		curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+	    break;
+	case "PUT":
+	    curl_setopt($curl, CURLOPT_PUT, 1);
+	    break;
+	default:
+	    if ($data)
+		$url = sprintf("%s?%s", $url, http_build_query($data));
+    }
+
+    $headers = [
+	'Content-Type: application/json'
+	];
+    if ( !empty($api_key))
+	$headers[] = 'X-TheySaidSo-Api-Secret: '. $api_key;
+
+    curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+    curl_setopt($curl, CURLOPT_URL, $url);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+
+    $result = curl_exec($curl);
+
+    curl_close($curl);
+
+    return $result;
+}
+
+$qod_result = call_api("GET","https://quotes.rest/qod?category=inspire",false,"_9A3UF457b8_wDR2Vr7W_QeF");
+$encode = json_decode($qod_result, true);
+$quote = $encode;
+
+//DISPLAY QUOTE AND AUTHOR
+
+echo '<ul>';
+echo $qod_result;
+echo $quote['contents']['quotes'][0]['quote'];
+echo ' Author: ';
+echo $quote['contents']['quotes'][0]['author'];
+echo '</ul>';
+
+//REST API END
+?>
+
 
       <!-- this is the container -->
       <div class="container card-deck">
@@ -100,10 +155,10 @@
       session_start();
       $username = $_SESSION['userUID'];
 
- $servername = "aqx5w9yc5brambgl.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
-$dBUsername = "criar4b0z3v8vsbh";
-$dBPassword = "mcjw7gey3e0sbow8";
-$dBName = "k1d10389nz4l3bsk";
+      $servername = "aqx5w9yc5brambgl.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
+      $dBUsername = "criar4b0z3v8vsbh";
+      $dBPassword = "mcjw7gey3e0sbow8";
+      $dBName = "k1d10389nz4l3bsk";
 
             // Create connection
             $conn = mysqli_connect($servername, $dBUsername, $dBPassword, $dBName);
@@ -151,7 +206,7 @@ $dBName = "k1d10389nz4l3bsk";
                       <form class = "cardform"id = "submitform" action="editcard.php?id=<?php echo $page["_id"]?>" method="post">
                     <textarea id = "new-todo" rows = "3" class="form-control form-rounded" name="new-todo" type = "text" placeholder="<?php echo $page["_text"]?>" contentEditable="true"></textarea>
                     <br>
-                  <button type ="submit" href="">Add</button></form>
+                  <button type ="submit" href=""class="btn btn-primary float-right" >Add</button></form>
                 <?php } ?>
         <a href="deletecard.php?id=<?php echo $page["_id"]?>">Delete</a></div></div></div>
    
