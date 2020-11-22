@@ -100,10 +100,10 @@
       session_start();
       $username = $_SESSION['userUID'];
 
-            $servername = "us-cdbr-east-02.cleardb.com";
-            $dBUsername = "bbce67deea96fe";
-            $dBPassword = "aa0b3388";
-            $dBName = "heroku_594dc794615938b";
+ $servername = "aqx5w9yc5brambgl.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
+$dBUsername = "criar4b0z3v8vsbh";
+$dBPassword = "mcjw7gey3e0sbow8";
+$dBName = "k1d10389nz4l3bsk";
 
             // Create connection
             $conn = mysqli_connect($servername, $dBUsername, $dBPassword, $dBName);
