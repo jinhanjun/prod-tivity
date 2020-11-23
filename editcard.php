@@ -1,6 +1,6 @@
 <?php
 
-require "header.php";
+//require "header.php";
 
 $servername = "aqx5w9yc5brambgl.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
 $dBUsername = "criar4b0z3v8vsbh";
@@ -19,8 +19,8 @@ if(!$conn){
 $sql = "UPDATE prodcards SET cardtext = '$cardtext' WHERE cardid ='$id'";
 mysqli_query($conn, $sql);
 mysqli_close($conn);
-//header("Refresh:0");
-header('Refresh: 1; url=header.php');
+header("Refresh:0");
+header('Location: header.php?upload=true&text='.$cardtext);
 exit();
 
 
