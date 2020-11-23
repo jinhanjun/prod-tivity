@@ -27,6 +27,7 @@
             max-width: 100%;
             /* padding: 20px; */
         }
+        
     </style>
 
     <?php
@@ -235,13 +236,11 @@
             Icons8</a>
 
     </footer> -->
-    <footer class="page-footer font-small blue" style = "background-color: #262a2b">
-      <div class="footer-copyright text-center py-3" style="background-color: #262a2b color:">
-        <!-- © 2020 Copyright: -->
+    <footer class="page-footer fixed-bottom text-center" style = "background-color: #262a2b">
       
-        <a style = "text-decoration: none; color: white;" href="https://icons8.com/icon/vn5qFmwrStFg/bee">Bee icon by Icons8</a>
-      </div>
-      </footer>
+        <a style = "text-decoration: none; color: #808184; font-size: 10px;" href="https://icons8.com/icon/vn5qFmwrStFg/bee">Bee icon by Icons8</a>
+      
+    </footer>
 
 </body>
 
