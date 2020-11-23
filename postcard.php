@@ -8,6 +8,8 @@ if(isset($_POST['addsubmit'])){
   $dBPassword = "mcjw7gey3e0sbow8";
   $dBName = "k1d10389nz4l3bsk";
   $username = $_GET['uid'];
+  $fullname = $_GET['fullname'];
+  $majorname = $_GET['majorname'];
 
   // Create connection
   $conn = mysqli_connect($servername, $dBUsername, $dBPassword, $dBName);
@@ -25,7 +27,7 @@ if(isset($_POST['addsubmit'])){
         //header("Location: header.php?add=true");
         //header('Refresh: 1; url=header.php');
       //exit();
-      header("Location: header.php");
+      header('Location: header.php?fullname='.$fullname.'&majorname='.$majorname);
       exit();
 
   } 
