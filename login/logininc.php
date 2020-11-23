@@ -32,8 +32,10 @@ if(isset($_POST['loginsubmit'])){
                     session_start();
                     $_SESSION['userID'] = $row['idusers'];
                     $_SESSION['userUID'] = $row['username'];
+                    $name = $row['fullname'];
+                    $major = $row['usermajor'];
 
-                    header("Location: ../header.php?login=success");
+                    header("Location: ../header.php?login=success&fullname=".$name."&majorname=".$major."&username=".$username);
                     exit();
 
                 }
