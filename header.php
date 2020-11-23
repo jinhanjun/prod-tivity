@@ -228,13 +228,20 @@
         <!-- div tag below is for the container of cards  -->
     </div>
 
-    <footer style="      
+    <!-- <footer style="      
     background-color: #262a2b;" class="footer text-center py-3 page-footer fixed-bottom">
 
         <a style="text-decoration: none; color: white;" href="https://icons8.com/icon/vn5qFmwrStFg/bee">Bee icon by
             Icons8</a>
 
-    </footer>
+    </footer> -->
+    <footer class="page-footer font-small blue" style = "background-color: #262a2b">
+      <div class="footer-copyright text-center py-3" style="background-color: #262a2b color:">
+        <!-- © 2020 Copyright: -->
+      
+        <a style = "text-decoration: none; color: white;" href="https://icons8.com/icon/vn5qFmwrStFg/bee">Bee icon by Icons8</a>
+      </div>
+      </footer>
 
 </body>
 
