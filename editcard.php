@@ -8,6 +8,8 @@ $dBPassword = "mcjw7gey3e0sbow8";
 $dBName = "k1d10389nz4l3bsk";
 $id = $_GET['id'];
 $cardtext = $_POST['new-todo'];
+$fullname = $_GET['fullname'];
+$majorname = $_GET['majorname'];
 
 // Create connection
 $conn = mysqli_connect($servername, $dBUsername, $dBPassword, $dBName);
@@ -20,7 +22,7 @@ $sql = "UPDATE prodcards SET cardtext = '$cardtext' WHERE cardid ='$id'";
 mysqli_query($conn, $sql);
 mysqli_close($conn);
 header("Refresh:0");
-header('Location: header.php?upload=true&text='.$cardtext);
+header('Location: header.php?fullname='.$fullname.'&majorname='.$majorname);
 exit();
 
 
