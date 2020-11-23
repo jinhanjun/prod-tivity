@@ -29,6 +29,12 @@
         }
     </style>
 
+    <?php
+    $fullname = $_GET['fullname'];
+    $majorname = $_GET['majorname'];
+    
+    ?>
+
     <title>Busy Bee</title>
 </head>
 
@@ -36,8 +42,8 @@
     <div class="navbar shadow-lg " style="background-color: #262a2b ">
         <a class="navbar-brand" style=" color: white;">
             <img src="https://img.icons8.com/nolan/64/bee.png" />
-            <strong> Busy Bee </strong>
-        </a>
+            <strong> Busy Bee:              Welcome  <?php echo $fullname?> (Major: <?php echo $majorname?>) </strong>
+        </a>''
 
         <a style = "color: #808184;" class="nav-link " href="login/logoutinc.php" name="logout">Logout</a>
 
@@ -107,7 +113,7 @@
     $username = $_SESSION['userUID'];
     ?>
 
-        <form class="cardform" id="submitform" action="postcard.php?uid=<?php echo $username?>" method="post">
+        <form class="cardform" id="submitform" action="postcard.php?uid=<?php echo $username?>&fullname=<?php echo $fullname?>&majorname=<?php echo $majorname?>" method="post">
             <div class="col-sm-3 col-md-3 pb-2">
                 <div class="card" style="width: 32rem;">
                     <div class="card-body">
@@ -181,13 +187,13 @@
                         <?php echo $cardtext ?>
 
                     </p>
-                    <td><a class="btn btn-outline-success float-left" href="header.php?edit=true&id=<?php echo $cardid?>">Edit</a></td>
+                    <td><a class="btn btn-outline-success float-left" href="header.php?edit=true&id=<?php echo $cardid?>&fullname=<?php echo $fullname?>&majorname=<?php echo $majorname?>">Edit</a></td>
 
                     <?php
 
 
                 if(isset($_GET['edit']) && ($_GET['id']== $page["_id"])){?>
-                    <form class="cardform" id="submitform" action="editcard.php?id=<?php echo $cardid?>&cardtext=<?php echo $cardtext?>"
+                    <form class="cardform" id="submitform" action="editcard.php?id=<?php echo $cardid?>&fullname=<?php echo $fullname?>&majorname=<?php echo $majorname?>"
                         method="post">
                         <br>
                         <textarea id="new-todo" rows="3" class="form-control form-rounded" name="new-todo" type="text"
@@ -195,7 +201,7 @@
                         <br>
                         <button class = "btn btn-primary float-left" type="submit" href="">Update</button></form>
                     <?php } ?>
-                    <a class="btn btn-danger float-right" href="deletecard.php?id=<?php echo $cardid?>">Delete</a>
+                    <a class="btn btn-danger float-right" href="deletecard.php?id=<?php echo $cardid?>&fullname=<?php echo $fullname?>&majorname=<?php echo $majorname?>">Delete</a>
 
                     <!-- <button type="submit" name="addsubmit" class="btn btn-warning float-right ">+ Add</button> -->
                 </div>
