@@ -20,7 +20,8 @@ if(!$conn){
       $sql = "INSERT INTO prodcards (username, cardtext) VALUES ('$username', '$newtodo')";
       mysqli_query($conn, $sql);
       mysqli_close($conn);
-      header("Location: header.php?upload=success");
+      //header("Location: header.php?upload=success");
+    header('Refresh: 0; url=header.php');
     exit();
 
 
