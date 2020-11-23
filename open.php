@@ -48,7 +48,7 @@
 
                         <br />
                         <label for="pwbox"> Password </label>
-                        <input id="pwbox" class="form-control form-control-lg form-rounded" name="password" type="text"
+                        <input id="pwbox" class="form-control form-control-lg form-rounded" name="password" type="password"
                             placeholder="Password">
 
                         <br />
