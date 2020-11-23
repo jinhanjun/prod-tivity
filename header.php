@@ -101,7 +101,13 @@
     <!-- this is the container -->
     <div class="container card-deck">
 
-        <form class="cardform" id="submitform" action="postcard.php" method="post">
+    <?php
+    
+    session_start();
+    $username = $_SESSION['userUID'];
+    ?>
+
+        <form class="cardform" id="submitform" action="postcard.php?uid=<?php echo $username?>" method="post">
             <div class="col-sm-3 col-md-3 pb-2">
                 <div class="card" style="width: 32rem;">
                     <div class="card-body">
@@ -144,8 +150,7 @@
         </div>
         
         <?php
-          session_start();
-          $username = $_SESSION['userUID'];
+
 
           $servername = "aqx5w9yc5brambgl.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
           $dBUsername = "criar4b0z3v8vsbh";
@@ -164,44 +169,43 @@
 
 
 
-    while($page = mysqli_fetch_assoc($r)){ ?>
-
+    while($page = mysqli_fetch_assoc($r)){ 
+        $cardtext = $page["_message"];
+        $cardid = $page["_id"];
+        ?>
         <div class="col-sm-3 col-md-3 pb-2">
             <div class="card" style="width: 15rem; background-color: white;">
-                <div id=<?php echo $page["_id"]?> class="card-body">
+                <div class="card-body">
                     <p class="card-text">
 
-                        <?php echo $page["_message"] ?>
+                        <?php echo $cardtext ?>
 
                     </p>
-                    <td><a class="btn btn-outline-success float-left" href="header.php?edit=true&id=<?php echo $page["_id"]?>">Edit</a></td>
+                    <td><a class="btn btn-outline-success float-left" href="header.php?edit=true&id=<?php echo $cardid?>">Edit</a></td>
 
                     <?php
 
 
                 if(isset($_GET['edit']) && ($_GET['id']== $page["_id"])){?>
-                    <form class="cardform" id="submitform" action="editcard.php?id=<?php echo $page["_id"]?>"
+                    <form class="cardform" id="submitform" action="editcard.php?id=<?php echo $cardid?>&cardtext=<?php echo $cardtext?>"
                         method="post">
                         <br>
                         <textarea id="new-todo" rows="3" class="form-control form-rounded" name="new-todo" type="text"
-                             contentEditable="true"><?php echo $page["_text"]?></textarea>
+                             contentEditable="true"><?php echo $cardtext?></textarea>
                         <br>
                         <button class = "btn btn-primary float-left" type="submit" href="">Update</button></form>
                     <?php } ?>
-                    <a class="btn btn-danger float-right" href="deletecard.php?id=<?php echo $page["_id"]?>">Delete</a>
+                    <a class="btn btn-danger float-right" href="deletecard.php?id=<?php echo $cardid?>">Delete</a>
 
                     <!-- <button type="submit" name="addsubmit" class="btn btn-warning float-right ">+ Add</button> -->
                 </div>
             </div>
         </div>
 
+
         <?php } ?>
 
-        <script>
-            renderedit($editid){
-        }
 
-        </script>
 
         <!-- THIS IS THE CODE FOR THE CARD,,,, put this in the while loop
         <div class="col-sm-3 col-md-3 pb-2">
